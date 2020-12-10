@@ -12,7 +12,9 @@ import ProductsPage from "./pages/ProductsPage";
 ReactDOM.render(
   <ProductsProvider>
     <FilterProvider>
-      <App />
+      <CartProvider>
+        <App />
+      </CartProvider>
     </FilterProvider>
   </ProductsProvider>,
   document.getElementById("root")
