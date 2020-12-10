@@ -10,12 +10,21 @@ import { Auth0Provider } from "@auth0/auth0-react";
 import ProductsPage from "./pages/ProductsPage";
 
 ReactDOM.render(
-  <ProductsProvider>
-    <FilterProvider>
-      <CartProvider>
-        <App />
-      </CartProvider>
-    </FilterProvider>
-  </ProductsProvider>,
+  <Auth0Provider
+    domain="cshimm.us.auth0.com"
+    clientId="pmU2LVXZPPY7WGBCIvECBJLGLbvI4bCs"
+    redirectUri={window.location.origin}
+    cacheLocation="localstorage"
+  >
+    <UserProvider>
+      <ProductsProvider>
+        <FilterProvider>
+          <CartProvider>
+            <App />
+          </CartProvider>
+        </FilterProvider>
+      </ProductsProvider>
+    </UserProvider>
+  </Auth0Provider>,
   document.getElementById("root")
 );
